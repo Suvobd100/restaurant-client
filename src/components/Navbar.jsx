@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import userIcon from "../assets/images/user.png";
+import logo from "../assets/images/logo.png"
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
@@ -55,7 +56,10 @@ const Navbar = () => {
                 className="flex flex-col font-comic p-2 text-stone-300 
             animate__animated animate__heartBeat animate__delay-2s "
               >
+                <div className="flex gap-1">
+                <img className="w-10 rounded-3xl" src={logo} alt="" />
                 <p className="text-3xl">চলও খাঁই</p>
+                </div>
                 <p className="text-lg text-slate-400"> 
                     <span className="ml-4">চেটে পুটে খাই ...</span>
                 </p>
@@ -91,7 +95,8 @@ const Navbar = () => {
               <div className="flex justify-center items-center gap-2">
                 <img
                   className="w-10 h-10 rounded-3xl"
-                  src={user?.photoURL ? user.photoURL : userIcon}
+                  referrerPolicy='no-referrer'
+                  src={user?.photoURL? user.photoURL : userIcon}
                   alt="user pic"
                 />
                 <p className="font-semibold font-comic text-white">

@@ -12,7 +12,7 @@ const MainLayout = () => {
         <Navbar />
       </header>
 
-      <main className="min-h-[calc(100vh-280px)] p-24 container mx-auto">
+      <main className="min-h-[calc(100vh-370px)] ">
         <Outlet />
       </main>
       <footer className="">
