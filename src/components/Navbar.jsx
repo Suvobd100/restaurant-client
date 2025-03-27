@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 import userIcon from "../assets/images/user.png";
-import logo from "../assets/images/logo.png"
+import logo from "../assets/images/logo.png";
 
 const Navbar = () => {
   const { user } = useContext(AuthContext);
@@ -34,18 +34,11 @@ const Navbar = () => {
               <li>
                 <Link to="/">Home</Link>
               </li>
-
-              <li>{/* <Link to="all-visas">All visas</Link> */}</li>
-              {/* <li>
-                <Link to="/priv/vtutorials"> Add Visa</Link>
-              </li> */}
-              <li>{/* <Link to="add-visa"> Add Visa</Link> */}</li>
-              <li>{/* <Link to="My-added-visas"> My added visas</Link> */}</li>
               <li>
-                {/* <Link to="My-Visa-applications">My Visa applications</Link> */}
+                <Link to="all-food">All Food</Link>
               </li>
               <li>
-                <Link to="register">Register</Link>
+                <Link to="food-gallery"> Gallery </Link>
               </li>
             </ul>
           </div>
@@ -56,12 +49,12 @@ const Navbar = () => {
                 className="flex flex-col font-comic p-2 text-stone-300 
             animate__animated animate__heartBeat animate__delay-2s "
               >
-                <div className="flex gap-1">
-                <img className="w-10 rounded-3xl" src={logo} alt="" />
-                <p className="text-3xl">চলও খাঁই</p>
+                <div className="flex lg:gap-2 gap-1">
+                  <img className="lg:w-10 lg:h-10 lg:rounded-2xl rounded-full w-[20%] h-[20%]" src={logo} alt="" />
+                  <p className="lg:text-3xl">চলও খাঁই</p>
                 </div>
-                <p className="text-lg text-slate-400"> 
-                    <span className="ml-4">চেটে পুটে খাই ...</span>
+                <p className="lg:text-lg text-slate-400">
+                  <span className="lg:ml-15 ml-6 text-l">চেটে পুটে খাই</span>
                 </p>
               </div>
             </Link>
@@ -73,7 +66,12 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
 
-            <li>{/* <Link to="all-visas">All visas</Link> */}</li>
+            <li>
+              <Link to="all-food">All Food</Link>
+            </li>
+            <li>
+              <Link to="food-gallery"> Gallery </Link>
+            </li>
             {/* <li>
                 <Link to="/priv/vtutorials"> Add Visa</Link>
               </li> */}
@@ -95,8 +93,8 @@ const Navbar = () => {
               <div className="flex justify-center items-center gap-2">
                 <img
                   className="w-10 h-10 rounded-3xl"
-                  referrerPolicy='no-referrer'
-                  src={user?.photoURL? user.photoURL : userIcon}
+                  referrerPolicy="no-referrer"
+                  src={user?.photoURL ? user.photoURL : userIcon}
                   alt="user pic"
                 />
                 <p className="font-semibold font-comic text-white">

@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import logo from "../assets/images/logo.png"
 
 const Footer = () => {
   return (
@@ -55,8 +56,9 @@ const Footer = () => {
           </div>
         </nav>
         <aside>
-          <p>
-            Copyright © {new Date().getFullYear()} - All right reserved by VISA NAVIGATOR
+          <p className="flex justify-center items-center gap-4">
+            Copyright © {new Date().getFullYear()} - All right reserved by 
+            <img className="w-[5%] rounded-r-xl rounded-bl-xl " src={logo} alt="logo" />
           </p>
         </aside>
       </footer>

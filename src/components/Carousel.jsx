@@ -38,7 +38,7 @@ export default function Carousel() {
           <div className="flex flex-col justify-center items-center relative w-full">
             <Slide image={bgimg1} text="ঢাকার স্বাদ এবার আপনার থালায়!" />
 
-            <div className="absolute top-72 left-1/2 transform -translate-x-1/2 z-10 w-auto">
+            <div className="absolute top-[60%] left-1/2 transform -translate-x-1/2 z-10 p-2 ">
               <TestButtonA 
               text="কাচা কাঁঠাল"/>
             </div>
@@ -50,7 +50,7 @@ export default function Carousel() {
             image={bgimg2}
             text="Love at first bite - Bangladeshi flavors like no other."
           />
-          <div className="absolute top-72 left-1/2 transform -translate-x-1/2 z-10 w-auto">
+          <div className="absolute top-[60%] left-1/2 transform -translate-x-1/2 z-10 ">
               <TestButtonA 
               text="ডিম চপ"/>
             </div>
@@ -63,7 +63,7 @@ export default function Carousel() {
             image={bgimg3}
             text="Spice up your day with our Bangladeshi delicacies."
           />
-          <div className="absolute top-72 left-1/2 transform -translate-x-1/2 z-10 w-auto">
+          <div className="absolute top-[60%] left-1/2 transform -translate-x-1/2 z-10 ">
               <TestButtonA 
               text="মাছের ঝোল"/>
             </div>

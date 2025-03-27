@@ -12,11 +12,11 @@ const handleLogout=()=>{
 }
 
   return (
-    <div className="bg-lime-600 h-10 p-1 text-sky-100 px-4 text-sm">
+    <div className="bg-lime-600 h-10 p-2 text-sky-100 px-4 text-sm">
       <div className="flex justify-between">
         <div className="flex space-x-8">
           <div className="flex gap-4">
-            <h4> Home Delivery Available</h4> 
+            <h4> Home Delivery</h4> 
             <span>|</span>
           </div>
           <div className="flex gap-4">
@@ -27,19 +27,19 @@ const handleLogout=()=>{
             <h4> Follow Us </h4>
           </div>
         </div>
-        <div>
+        <div className="-mt-2">
         {user && user?.email ? (
             <Link
               to={"/"}
               onClick={handleLogout}
-              className="btn btn-outline text-black rounded-noe"
+              className="btn btn-outline text-black"
             >
               Log-Out
             </Link>
           ) : (
             <Link
               to={"auth/login"}
-              className="btn btn-outline text-black rounded-noe"
+              className="btn btn-outline text-black"
             >
               Login
             </Link>
