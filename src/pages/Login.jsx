@@ -1,102 +1,132 @@
 import React, { useContext, useState } from "react";
+import bgImg from "../assets/images/login.jpg";
 import { FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router-dom"; 
 import { toast } from "react-toastify";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
-  // import from auth
-  const { userLogin, setUser, handelGoogleLogin } = useContext(AuthContext);
-
-  const [err,setErr]=useState(null)
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || "/";
+  console.log(from);
+  // import from auth
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
 
-  const handelSubmit=(e)=>{
+  const [err, setErr] = useState(null);
+//   const navigate = useNavigate();
+
+  // Google Signin
+  const handleGoogleSignIn = async () => {
+    try {
+      await signInWithGoogle();
+
+      toast.success("Signin Successful");
+      navigate(from, { replace: true });
+    } catch (err) {
+      setErr(err);
+      toast.error(err?.message);
+    }
+  };
+
+  // Email Password Signin
+  const handleSignIn = async (e) => {
     e.preventDefault();
-    setErr(null);
     const form = e.target;
     const email = form.email.value;
-    const password = form.password.value;
-    // console.log('login form:--',email,password);
+    const pass = form.password.value;
+    console.log({ email, pass });
+    try {
+      //User Login
+      await signIn(email, pass);
+      toast.success("Signin Successful");
+      navigate(from, { replace: true });
+    } catch (err) {
+     setErr(err);
+      toast.error(err?.message);
+    }
+  };
 
-// login by fb with existence user email & password
-    userLogin(email, password)
-    .then((result) => {
-      const user = result.user;
-      setUser(user);
-      // toast messg
-    //   toast.success('Login successfully done!');
-      toast.success('Login')
-      
-      navigate(location?.state ? location.state : "/");
-    })
-    .catch((error) => {
-      
-      setErr(error.code);
-    });
-
-  }
   return (
-    <div className="min-h-screen flex justify-center items-center flex-col">
-      <div className="card bg-base-100 w-full max-w-lg shrink-0 rounded-none p-10  border-2">
-        <h2 className="text-2xl font-semibold text-center">
-          Login your account
-        </h2>
-        <form onSubmit={handelSubmit} className="card-body">
-          <div className="form-control flex flex-col">
-            <label className="label">
-              <span className="label-text font-semibold">Email address</span>
-            </label>
-            <input
-              name="email"
-              type="email"
-              placeholder="email"
-              className="input input-bordered"
-              required
-            />
+    <div className="">
+      <h2 className="text-2xl text-center">Welcome Again</h2>
+
+      <div className="min-h-screen flex justify-center -mt-10">
+
+        {/* Left side - Form */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center p-4">
+          <div className="w-full rounded-lg ">
+
+            {/* login with google */}
+            <div onClick={handleGoogleSignIn}>
+             
+              <div className="flex justify-center lg:justify-center items-center p-4 btn mt-4">
+                <FaGoogle />
+                <span className="text-sm"> Login with Google</span>
+              </div>
+             
+            </div>
+
+            {/* login with email password */}
+            <div className="mt-4">
+              <form onSubmit={handleSignIn} className="card-body">
+                <div className="form-control flex  w-full justify-center items-center gap-2 ml-3">
+                  <label className="label">
+                    <span className="label-text font-semibold">Email: </span>
+                  </label>
+                  <input
+                    name="email"
+                    type="email"
+                    placeholder="email"
+                    className="input input-bordered"
+                    required
+                  />
+                </div>
+                <div className="form-control flex w-full justify-center items-center gap-2">
+                  <label className="label">
+                    <span className="label-text font-semibold">Password: </span>
+                  </label>
+                  <input
+                    name="password"
+                    type="password"
+                    placeholder="password"
+                    className="input input-bordered"
+                    required
+                  />
+                </div>
+
+                <div className="form-control mt-6">
+                  <button className="btn btn-neutral rounded-xs w-full p-6">
+                    Login
+                  </button>
+                </div>
+                <p className="text-center">
+                  Don't Have An Account?
+                  <Link to={"/auth/register"} className="text-red-500">
+                    Register
+                  </Link>
+                </p>
+              </form>
+            </div>
+            {err && (
+              <div className="text-red-500 items-center text-center">{err}</div>
+            )}
           </div>
-          <div className="form-control flex flex-col">
-            <label className="label">
-              <span className="label-text font-semibold">Password</span>
-            </label>
-            <input
-              name="password"
-              type="password"
-              placeholder="password"
-              className="input input-bordered"
-              required
-            />
-            {/* <label className="label">
-              <a href="#" className="label-text-alt link link-hover">
-                Forgot password?
-              </a>
-            </label> */}
-          </div>
-          <div className="form-control mt-6 ">
-            <button className="btn btn-neutral rounded-xs w-full p-6">
-              Login
-            </button>
-          </div>
-          <p className="text-center">
-            Don't Have An Account?{" "}
-            <Link to={"/auth/register"} className="text-red-500">
-              Register
-            </Link>{" "}
-          </p>
-        </form>
-        {<div className="text-red-500 items-center text-center">{err}</div>}
-      </div>
-      <Link
-        to={"/"}
-        onClick={handelGoogleLogin}
-        // className="btn bg-stone-100 text-black mt-6 w-[25%]"
-      >
-        <div className="flex justify-center lg:justify-between items-center lg:gap-4 p-4 btn
-         bg-stone-300 mt-4">
-          <FaGoogle />
-          <span className="text-sm"> Login with Google</span>
         </div>
-      </Link>
+
+        {/* Right side - Image */}
+        
+        <div
+          className="hidden lg:block lg:w-3/5 bg-center rounded-r-[40%] w-[80%]"
+          style={{
+            backgroundImage: `url(${bgImg})`,
+            backgroundSize: "contain", // or 'cover' depending on your preference
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+            
+        </div>
+      </div>
     </div>
   );
 };

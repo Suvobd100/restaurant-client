@@ -12,7 +12,7 @@ const handleLogout=()=>{
 }
 
   return (
-    <div className="bg-lime-600 h-10 p-2 text-sky-100 px-4 text-sm">
+    <div className="bg-lime-700 h-10 p-2 text-sky-100 px-4 text-sm">
       <div className="flex justify-between">
         <div className="flex space-x-8">
           <div className="flex gap-4">
