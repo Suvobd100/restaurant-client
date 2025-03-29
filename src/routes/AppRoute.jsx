@@ -4,20 +4,22 @@ import Login from "../pages/Login";
 import Home from "../pages/Home";
 import AuthLayout from "../layouts/AuthLayout";
 import Register from "../pages/Register";
+import NotFound from "../pages/NotFound";
 
 const AppRoute = () => {
   return (
     <BrowserRouter>
       <Routes>
+        {/* MainLayout Route */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          {/* <Route path="register" element={<Register />} /> */}
+          <Route path="*" element={<NotFound />} />
         </Route>
 
         {/* AuthLayout Routes */}
         <Route path="/auth" element={<AuthLayout />}>
           <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register/>} />
+          <Route path="register" element={<Register />} />
         </Route>
       </Routes>
     </BrowserRouter>
