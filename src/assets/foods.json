@@ -1,0 +1,156 @@
+ [
+    {
+        "foodId": "B001",
+        "foodName": "Biriyani",
+        "foodImageURL": "https://example.com/bangladeshi-biriyani.jpg",
+        "foodOrigin": "Bangladesh",
+        "Description": "Fragrant rice cooked with marinated meat (chicken/beef/mutton), spices, potatoes, and boiled eggs. Served with borhani (a spiced yogurt drink).",
+        "Price": 8.99,
+        "purchaseCount": 1200,
+        "availableQuantity": 500
+      },
+      {
+        "foodId": "B002",
+        "foodName": "Hilsa Fish Curry (Ilish Bhapa)",
+        "foodImageURL": "https://example.com/ilish-bhapa.jpg",
+        "foodOrigin": "Bangladesh",
+        "Description": "Hilsa fish steamed with mustard paste, turmeric, chili, and coconut milk, wrapped in banana leaves.",
+        "Price": 12.50,
+        "purchaseCount": 850,
+        "availableQuantity": 300
+      },
+      {
+        "foodId": "B003",
+        "foodName": "Panta Bhat (Fermented Rice)",
+        "foodImageURL": "https://example.com/panta-bhat.jpg",
+        "foodOrigin": "Bangladesh",
+        "Description": "Leftover rice soaked in water overnight, served with salt, green chili, onion, and fried fish. A traditional Bengali dish.",
+        "Price": 3.50,
+        "purchaseCount": 600,
+        "availableQuantity": 200
+      },
+      {
+        "foodId": "B004",
+        "foodName": "Fuchka (Pani Puri)",
+        "foodImageURL": "https://example.com/fuchka.jpg",
+        "foodOrigin": "Bangladesh",
+        "Description": "Crispy hollow puris filled with mashed potatoes, chickpeas, tamarind water, and spicy mint water.",
+        "Price": 2.00,
+        "purchaseCount": 1500,
+        "availableQuantity": 1000
+      },
+      {
+        "foodId": "B005",
+        "foodName": "Mishti Doi (Sweet Yogurt)",
+        "foodImageURL": "https://example.com/mishti-doi.jpg",
+        "foodOrigin": "Bangladesh",
+        "Description": "Creamy sweet yogurt made with caramelized sugar (jaggery or sugar) and fermented in earthen pots.",
+        "Price": 2.50,
+        "purchaseCount": 2000,
+        "availableQuantity": 800
+      },
+  
+      
+      {
+        "foodId": "T001",
+        "foodName": "Pad Thai",
+        "foodImageURL": "https://example.com/pad-thai.jpg",
+        "foodOrigin": "Thailand",
+        "Description": "Stir-fried rice noodles with eggs, tofu, shrimp, bean sprouts, peanuts, and tamarind sauce.",
+        "Price": 7.99,
+        "purchaseCount": 1800,
+        "availableQuantity": 700
+      },
+      {
+        "foodId": "T002",
+        "foodName": "Tom Yum Goong",
+        "foodImageURL": "https://example.com/tom-yum-goong.jpg",
+        "foodOrigin": "Thailand",
+        "Description": "Spicy and sour shrimp soup with lemongrass, kaffir lime leaves, galangal, and chili.",
+        "Price": 9.50,
+        "purchaseCount": 1300,
+        "availableQuantity": 400
+      },
+      {
+        "foodId": "T003",
+        "foodName": "Green Curry (Gaeng Keow Wan)",
+        "foodImageURL": "https://example.com/green-curry.jpg",
+        "foodOrigin": "Thailand",
+        "Description": "Coconut milk-based curry with green chili paste, chicken, eggplant, and basil.",
+        "Price": 8.50,
+        "purchaseCount": 1100,
+        "availableQuantity": 350
+      },
+      {
+        "foodId": "T004",
+        "foodName": "Mango Sticky Rice",
+        "foodImageURL": "https://example.com/mango-sticky-rice.jpg",
+        "foodOrigin": "Thailand",
+        "Description": "Sweet dessert made with glutinous rice, fresh mango, and coconut milk.",
+        "Price": 5.00,
+        "purchaseCount": 2000,
+        "availableQuantity": 900
+      },
+      {
+        "foodId": "T005",
+        "foodName": "Som Tum (Green Papaya Salad)",
+        "foodImageURL": "https://example.com/som-tum.jpg",
+        "foodOrigin": "Thailand",
+        "Description": "Spicy salad made with shredded green papaya, tomatoes, peanuts, lime, and fish sauce.",
+        "Price": 6.50,
+        "purchaseCount": 950,
+        "availableQuantity": 300
+      },
+  
+      
+      {
+        "foodId": "P001",
+        "foodName": "Biryani",
+        "foodImageURL": "https://example.com/pakistani-biryani.jpg",
+        "foodOrigin": "Pakistan",
+        "Description": "Flavorful rice dish with basmati rice, meat (chicken/beef), spices, and fried onions.",
+        "Price": 10.99,
+        "purchaseCount": 1500,
+        "availableQuantity": 600
+      },
+      {
+        "foodId": "P002",
+        "foodName": "Nihari",
+        "foodImageURL": "https://example.com/nihari.jpg",
+        "foodOrigin": "Pakistan",
+        "Description": "Slow-cooked stew with tender beef or mutton, spices, and wheat flour for thickness.",
+        "Price": 11.50,
+        "purchaseCount": 900,
+        "availableQuantity": 250
+      },
+      {
+        "foodId": "P003",
+        "foodName": "Haleem",
+        "foodImageURL": "https://example.com/haleem.jpg",
+        "foodOrigin": "Pakistan",
+        "Description": "Thick porridge made with lentils, wheat, barley, and meat (chicken/beef), garnished with fried onions and lemon.",
+        "Price": 7.50,
+        "purchaseCount": 1200,
+        "availableQuantity": 400
+      },
+      {
+        "foodId": "P004",
+        "foodName": "Chapli Kebab",
+        "foodImageURL": "https://example.com/chapli-kebab.jpg",
+        "foodOrigin": "Pakistan",
+        "Description": "Spiced minced meat (beef or lamb) patties fried with herbs and served with naan.",
+        "Price": 8.00,
+        "purchaseCount": 800,
+        "availableQuantity": 300
+      },
+      {
+        "foodId": "P005",
+        "foodName": "Gulab Jamun",
+        "foodImageURL": "https://example.com/gulab-jamun.jpg",
+        "foodOrigin": "Pakistan",
+        "Description": "Deep-fried milk-solid balls soaked in sugar syrup, a popular dessert.",
+        "Price": 4.50,
+        "purchaseCount": 1700,
+        "availableQuantity": 750
+      }
+]

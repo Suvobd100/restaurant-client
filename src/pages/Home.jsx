@@ -1,9 +1,13 @@
 
 import Carousel from '../components/Carousel'
+import { AllFoods } from './AllFoods'
 
 const Home = () => {
   return (
-    <div> <Carousel /></div>
+    <div> 
+      <Carousel />
+      <AllFoods/>
+    </div>
   )
 }
 
