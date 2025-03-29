@@ -35,6 +35,7 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
+                {/* <Link to="all-food?view=all">All Food</Link> */}
                 <Link to="all-food">All Food</Link>
               </li>
               <li>
@@ -50,7 +51,11 @@ const Navbar = () => {
             animate__animated animate__heartBeat animate__delay-2s "
               >
                 <div className="flex lg:gap-2 gap-1">
-                  <img className="lg:w-10 lg:h-10 lg:rounded-2xl rounded-full w-[20%] h-[20%]" src={logo} alt="" />
+                  <img
+                    className="lg:w-10 lg:h-10 lg:rounded-2xl rounded-full w-[20%] h-[20%]"
+                    src={logo}
+                    alt=""
+                  />
                   <p className="lg:text-3xl">চলও খাঁই</p>
                 </div>
                 <p className="lg:text-lg text-slate-400">
