@@ -1,20 +1,23 @@
 import React, { useContext, useState } from "react";
 import bgImg from "../assets/images/login.jpg";
 import { FaGoogle } from "react-icons/fa";
-import { Link, useLocation, useNavigate } from "react-router-dom"; 
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../providers/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state || "/";
-  console.log(from);
+  // console.log(from);
   // import from auth
   const { signIn, signInWithGoogle } = useContext(AuthContext);
 
+  const [isHovered, setIsHovered] = useState(false);
+
   const [err, setErr] = useState(null);
-//   const navigate = useNavigate();
+  //   const navigate = useNavigate();
 
   // Google Signin
   const handleGoogleSignIn = async () => {
@@ -42,7 +45,7 @@ const Login = () => {
       toast.success("Signin Successful");
       navigate(from, { replace: true });
     } catch (err) {
-     setErr(err);
+      setErr(err);
       toast.error(err?.message);
     }
   };
@@ -52,19 +55,15 @@ const Login = () => {
       <h2 className="text-2xl text-center">Welcome Again</h2>
 
       <div className="min-h-screen flex justify-center -mt-10">
-
         {/* Left side - Form */}
         <div className="w-full lg:w-1/2 flex items-center justify-center p-4">
           <div className="w-full rounded-lg ">
-
             {/* login with google */}
             <div onClick={handleGoogleSignIn}>
-             
               <div className="flex justify-center lg:justify-center items-center p-4 btn mt-4">
                 <FaGoogle />
                 <span className="text-sm"> Login with Google</span>
               </div>
-             
             </div>
 
             {/* login with email password */}
@@ -100,12 +99,32 @@ const Login = () => {
                     Login
                   </button>
                 </div>
-                <p className="text-center">
-                  Don't Have An Account?
-                  <Link to={"/auth/register"} className="text-red-500">
-                    Register
-                  </Link>
-                </p>
+                <div className="text-center">
+                  <span> Don't Have An Account?</span>
+                  <span className="ml-2 ">
+                    {/* <Link to={"/auth/register"} className={`text-red-500 ${isHovered ? 'underline' : 'no-underline'}`}>
+                      Register
+                    </Link> */}
+                    <Link
+                      to={"/auth/register"}
+                      className={`${
+                        isHovered ? "text-blue-600 underline" : "text-red-500"
+                      }`}
+                      onMouseEnter={() => setIsHovered(true)}
+                      onMouseLeave={() => setIsHovered(false)}
+                      data-tooltip-id="register-tooltip"
+                      data-tooltip-place="right"
+                    >
+                      Register
+                    </Link>
+                    <Tooltip
+                      id="register-tooltip"
+                      place="top"
+                      content="Create a new account"
+                      className="!bg-gray-800 !text-xs !py-1 !px-2"
+                    />
+                  </span>
+                </div>
               </form>
             </div>
             {err && (
@@ -115,7 +134,7 @@ const Login = () => {
         </div>
 
         {/* Right side - Image */}
-        
+
         <div
           className="hidden lg:block lg:w-3/5 bg-center rounded-r-[40%] w-[80%]"
           style={{
@@ -123,9 +142,7 @@ const Login = () => {
             backgroundSize: "contain", // or 'cover' depending on your preference
             backgroundRepeat: "no-repeat",
           }}
-        >
-            
-        </div>
+        ></div>
       </div>
     </div>
   );
