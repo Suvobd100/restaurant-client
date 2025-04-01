@@ -6,6 +6,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
 import { AllFoods } from "../pages/AllFoods";
+import AllFoodsA from "../pages/AllFoodsA";
 
 const AppRoute = () => {
   return (
@@ -14,7 +15,7 @@ const AppRoute = () => {
         {/* MainLayout Route */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path="all-food" element={<AllFoods/>}/>
+          <Route path="all-food" element={<AllFoodsA/>}/>
           <Route path="*" element={<NotFound />} />
         </Route>
 

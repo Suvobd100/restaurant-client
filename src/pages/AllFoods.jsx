@@ -9,7 +9,7 @@ export const AllFoods = () => {
   const [page, setPage] = useState(1);
   const itemsPerPage = 6; // Number of items per page
 
-  // Fetch all foods (no pagination on backend)
+  // Fetch all foods data
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['foods'],
     queryFn: async () => {
@@ -46,7 +46,7 @@ export const AllFoods = () => {
         <button
           onClick={() => setPage((old) => Math.max(old - 1, 1))}
           disabled={page === 1}
-          className="px-4 py-2 bg-base-200 rounded disabled:opacity-50"
+          className="px-4 py-2 w-[7%] bg-base-200 rounded disabled:opacity-50"
         >
           Previous
         </button>
@@ -56,7 +56,7 @@ export const AllFoods = () => {
         <button
           onClick={() => setPage((old) => (page >= totalPages ? old : old + 1))}
           disabled={page >= totalPages}
-          className="px-4 py-2 bg-base-200 rounded disabled:opacity-50"
+          className="px-4 w-[7%] py-2 bg-base-200 rounded disabled:opacity-50"
         >
           Next
         </button>
