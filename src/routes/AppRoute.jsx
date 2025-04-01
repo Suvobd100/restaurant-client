@@ -7,6 +7,7 @@ import Register from "../pages/Register";
 import NotFound from "../pages/NotFound";
 import { AllFoods } from "../pages/AllFoods";
 import AllFoodsA from "../pages/AllFoodsA";
+import SingleFoodCard from "../components/SingleFoodCard";
 
 const AppRoute = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoute = () => {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="all-food" element={<AllFoodsA/>}/>
+          <Route path="/food/:id" element={<SingleFoodCard/>}/>
           <Route path="*" element={<NotFound />} />
         </Route>
 

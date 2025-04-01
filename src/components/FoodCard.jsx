@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const foodCard = ({ food }) => {
   const {
@@ -15,13 +16,9 @@ const foodCard = ({ food }) => {
     <div className="w-11/12 justify-center mx-auto mb-2">
       <div className="card bg-base-100 w-full shadow-sm">
         <div className="mt-3 ml-10 flex justify-center ">
-          <h2
-            className="card-title text-2xl p-2 text-center"
-           
-          >
+          <h2 className="card-title text-2xl p-2 text-center">
             {foodName.substring(0, 12)}..
           </h2>
-          
         </div>
         <figure className="px-10 pt-4">
           <img
@@ -47,12 +44,9 @@ const foodCard = ({ food }) => {
             </li>
           </ul>
           <div className="card-actions mt-4">
-            {/* to={`/priv/lesson/${lessondata.categoryId}`} */}
-            {/* <Link to={`/visa/${_id}`}> */}
-            {/* <Link to={`/priv/visa/${_id}`}> */}
-            {/* <Link to={`/visa/${email}`}> */}
-            <button className="btn  bg-stone-500">See Details</button>
-            {/* </Link> */}
+            <Link to={`/food/${_id}`}>
+              <button className="btn bg-stone-500">See Details</button>
+            </Link>
           </div>
         </div>
       </div>

@@ -61,6 +61,7 @@ export const AllFoods = () => {
           Next
         </button>
       </div>
+      
     </div>
   );
 };
