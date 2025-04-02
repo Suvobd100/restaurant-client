@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const FoodCardA = ({food}) => {
     const {
@@ -48,12 +49,10 @@ const FoodCardA = ({food}) => {
             </li>
           </ul>
           <div className="card-actions mt-4">
-            {/* to={`/priv/lesson/${lessondata.categoryId}`} */}
-            {/* <Link to={`/visa/${_id}`}> */}
-            {/* <Link to={`/priv/visa/${_id}`}> */}
-            {/* <Link to={`/visa/${email}`}> */}
-            <button className="btn  bg-stone-500">See Details</button>
-            {/* </Link> */}
+            
+            <Link to={`/food/${_id}`}>
+              <button className="btn bg-stone-500">See Details</button>
+            </Link>
           </div>
         </div>
       </div>

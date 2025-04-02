@@ -8,8 +8,9 @@ import { Tooltip } from "react-tooltip";
 
 const Login = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location?.state || "/";
+  // const location = useLocation();
+  const from =  "/";
+  // const from = location?.state || "/";
   // console.log(from);
   // import from auth
   const { signIn, signInWithGoogle } = useContext(AuthContext);
@@ -102,9 +103,7 @@ const Login = () => {
                 <div className="text-center">
                   <span> Don't Have An Account?</span>
                   <span className="ml-2 ">
-                    {/* <Link to={"/auth/register"} className={`text-red-500 ${isHovered ? 'underline' : 'no-underline'}`}>
-                      Register
-                    </Link> */}
+                   
                     <Link
                       to={"/auth/register"}
                       className={`${
