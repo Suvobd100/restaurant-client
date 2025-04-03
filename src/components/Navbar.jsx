@@ -77,24 +77,12 @@ const Navbar = () => {
             <li>
               <Link to="gallery"> Gallery </Link>
             </li>
-            {/* <li>
-                <Link to="/priv/vtutorials"> Add Visa</Link>
-              </li> */}
-            <li>{/* <Link to="/priv/add-visa"> Add Visa</Link> */}</li>
-            <li>
-              {/* <Link to="/priv/My-added-visas"> My added visas</Link> */}
-            </li>
-            <li>
-              {/* <Link to="/priv/My-Visa-applications">My Visa applications</Link> */}
-            </li>
-            {/* <li>
-              <Link to="register">register</Link>
-            </li> */}
+            
           </ul>
         </div>
         <div className="navbar-end gap-2">
           <div>
-            {user && user?.email ? (
+            {/* {user && user?.email ? (
               <div className="flex justify-center items-center gap-2">
                 <img
                   className="w-10 h-10 rounded-3xl"
@@ -108,7 +96,42 @@ const Navbar = () => {
               </div>
             ) : (
               <img className="rounded-full" src={userIcon} alt="" />
-            )}
+            )} */}
+            {user && (
+          <div className='dropdown dropdown-end z-50'>
+            <div
+              tabIndex={0}
+              role='button'
+              className='btn btn-ghost btn-circle avatar'
+            >
+              <div title={user?.displayName} className='w-10 rounded-full'>
+                <img
+                  referrerPolicy='no-referrer'
+                  alt='User Profile Photo'
+                  src={user?.photoURL}
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
+            >
+              <li>
+                <Link to='/priv/my-food-page' className='justify-between'>
+                  My Food Page
+                </Link>
+               
+              </li>
+              <li>
+                <Link to='/priv/add-food-page'>Add Food Page</Link>
+              </li>
+              <li>
+                <Link to='/priv/my-orders'>My Orders</Link>
+              </li>
+              
+            </ul>
+          </div>
+        )}
           </div>
         </div>
       </div>

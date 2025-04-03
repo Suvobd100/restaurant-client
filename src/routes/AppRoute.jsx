@@ -12,6 +12,9 @@ import FoodPurchase from "../pages/FoodPurchase";
 import PrivateRoute from "./PrivateRoute";
 import PrivateLayout from "../layouts/PrivateLayout";
 import PhotoGallery from "../pages/PhotoGallery";
+import MyFoodPage from "../pages/MyFoodPage";
+import AddFoodPage from "../pages/AddFoodPage";
+import MyOrders from "../pages/MyOrders";
 
 const AppRoute = () => {
   return (
@@ -30,9 +33,12 @@ const AppRoute = () => {
 
         {/* Private route */}
         <Route path="/priv" element={<PrivateLayout/>}>
-          {/* <Route path="myprofile" element={<PrivateRoute><MyProfile/></PrivateRoute>}/> */}
+          
           <Route path="food-purchase" element={<PrivateRoute><FoodPurchase/></PrivateRoute>}/>
-          {/* <Route path="tutorials" element={<PrivateRoute><Tutorials/></PrivateRoute>}/> */}
+          <Route path="my-food-page" element={<PrivateRoute><MyFoodPage/></PrivateRoute>}/>
+          <Route path="add-food-page" element={<PrivateRoute><AddFoodPage/></PrivateRoute>}/>
+          <Route path="my-orders" element={<PrivateRoute><MyOrders/></PrivateRoute>}/>
+         
           {/* <Route path="lesson/:id" element={<PrivateRoute><LessonDetail/></PrivateRoute>}/> */}
           {/* <Route path="vtutorials" element={<PrivateRoute><TutorialAll/></PrivateRoute>}/> */}
         </Route>
