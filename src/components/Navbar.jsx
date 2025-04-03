@@ -39,7 +39,7 @@ const Navbar = () => {
                 <Link to="all-food">All Food</Link>
               </li>
               <li>
-                <Link to="food-gallery"> Gallery </Link>
+                <Link to="gallery"> Gallery </Link>
               </li>
             </ul>
           </div>
@@ -75,7 +75,7 @@ const Navbar = () => {
               <Link to="all-food">All Food</Link>
             </li>
             <li>
-              <Link to="food-gallery"> Gallery </Link>
+              <Link to="gallery"> Gallery </Link>
             </li>
             {/* <li>
                 <Link to="/priv/vtutorials"> Add Visa</Link>

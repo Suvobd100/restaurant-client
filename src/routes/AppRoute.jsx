@@ -11,6 +11,7 @@ import SingleFoodCard from "../components/SingleFoodCard";
 import FoodPurchase from "../pages/FoodPurchase";
 import PrivateRoute from "./PrivateRoute";
 import PrivateLayout from "../layouts/PrivateLayout";
+import PhotoGallery from "../pages/PhotoGallery";
 
 const AppRoute = () => {
   return (
@@ -21,6 +22,7 @@ const AppRoute = () => {
           <Route index element={<Home />} />
           <Route path="/all-food" element={<AllFoodsA/>}/>
           <Route path="/food/:id" element={<SingleFoodCard/>}/>
+          <Route path="/gallery" element={<PhotoGallery/>}/>
           {/* <Route path="/food-purchase" element={<FoodPurchase/>}/> */}
 
           <Route path="*" element={<NotFound />} />
