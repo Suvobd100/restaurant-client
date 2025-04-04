@@ -11,16 +11,15 @@ export const AllFoods = () => {
 
   // Fetch all foods data
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ['foods'],
+    queryKey: ["foods"],
     queryFn: async () => {
       const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/foods`);
       return data;
-    }
+    },
   });
 
-  if (isLoading) return <LoadingSpinner/>;
-  if (isError) return <NotFound error={error}/>;
-
+  if (isLoading) return <LoadingSpinner />;
+  if (isError) return <NotFound error={error} />;
 
   // Calculate pagination data on client side
   const totalItems = data.length;
@@ -42,26 +41,25 @@ export const AllFoods = () => {
       </div>
 
       {/* Pagination controls */}
-      <div className="flex justify-center mt-8 gap-2">
+      <div className="flex justify-center mt-8 gap-4">
         <button
           onClick={() => setPage((old) => Math.max(old - 1, 1))}
           disabled={page === 1}
-          className="px-4 py-2 w-[7%] bg-base-200 rounded disabled:opacity-50"
+          className="p-2 lg:w-[7%] bg-base-200 rounded disabled:opacity-50 cursor-pointer"
         >
           Previous
         </button>
-        <span className="px-4 py-2 bg-base-100">
+        <span className="p-2 bg-base-100">
           Page {page} of {totalPages}
         </span>
         <button
           onClick={() => setPage((old) => (page >= totalPages ? old : old + 1))}
           disabled={page >= totalPages}
-          className="px-4 w-[7%] py-2 bg-base-200 rounded disabled:opacity-50"
+          className="lg:w-[7%] p-2 bg-base-200 rounded disabled:opacity-50 cursor-pointer"
         >
           Next
         </button>
       </div>
-      
     </div>
   );
 };

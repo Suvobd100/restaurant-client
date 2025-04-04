@@ -1,4 +1,3 @@
-
 import NavTop from "../components/NavTop";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";

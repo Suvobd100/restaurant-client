@@ -92,7 +92,7 @@ const PhotoGallery = () => {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-80 w-full bg-gradient-to-r from-stone-500 via-blue-400 to-fuchsia-800">
+      <div className="relative h-80 w-full bg-gradient-to-r from-stone-500 via-blue-800 to-fuchsia-800">
         <div className="absolute inset-0 flex items-center justify-center">
           <h2 className="text-4xl md:text-6xl font-bold text-stone-200 text-center px-4">
             Our Amazing Food Gallery Glimpse
