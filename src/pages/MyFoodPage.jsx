@@ -9,6 +9,7 @@ import LoadingSpinner from "../components/LoadingSpinner";
 const MyFoodPage = () => {
   const [foods, setFoods] = useState([]);
   const [selectedFood, setSelectedFood] = useState(null);
+  const [loading, setLoading] = useState(false); // Add loading state
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -19,6 +20,7 @@ const MyFoodPage = () => {
   }, [user]);
 
   const fetchAllFoods = async () => {
+    setLoading(true); // Start loading
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/foods/user/${user?.email}`
@@ -27,6 +29,8 @@ const MyFoodPage = () => {
     } catch (error) {
       console.error("Failed to fetch foods:", error);
       setFoods([]);
+    } finally {
+      setLoading(false); // Stop loading regardless of success or failure
     }
   };
 
@@ -34,7 +38,6 @@ const MyFoodPage = () => {
     setSelectedFood(food);
   };
 
-  // Model data save
   const handleSave = async () => {
     try {
       await axios.put(
@@ -61,11 +64,10 @@ const MyFoodPage = () => {
         confirmButtonText: "OK",
         confirmButtonColor: "#EF4444",
       });
-      setSelectedFood(null); // Close modal on error
+      setSelectedFood(null);
     }
   };
 
-  // Back button
   const handleBack = (e) => {
     if (e) {
       e.preventDefault();
@@ -89,7 +91,9 @@ const MyFoodPage = () => {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">My Purchases</h1>
-      {foods.length > 0 ? (
+      {loading ? (
+        <LoadingSpinner /> // Show spinner while fetching
+      ) : foods.length > 0 ? (
         <div className="overflow-x-auto">
           <table className="table w-full border-collapse">
             <thead>
@@ -142,10 +146,7 @@ const MyFoodPage = () => {
           </div>
         </div>
       ) : (
-        <div>
-          <LoadingSpinner />
-          <p>No purchases found.</p>
-        </div>
+        <p>No purchases found.</p> // Show message when no data
       )}
 
       {selectedFood && (
@@ -155,10 +156,8 @@ const MyFoodPage = () => {
             <input
               type="text"
               value={selectedFood.foodName}
-              onChange={(e) =>
-                setSelectedFood({ ...selectedFood, foodName: e.target.value })
-              }
-              className="input input-bordered w-full mb-2"
+              readOnly // Make foodName non-editable
+              className="input input-bordered w-full mb-2" // Optional: gray out to indicate read-only
             />
             <input
               type="number"
@@ -166,7 +165,7 @@ const MyFoodPage = () => {
               onChange={(e) =>
                 setSelectedFood({
                   ...selectedFood,
-                  BuyingQuantity: parseInt(e.target.value),
+                  BuyingQuantity: parseInt(e.target.value) || 0, // Default to 0 if invalid
                 })
               }
               className="input input-bordered w-full mb-2"
