@@ -28,14 +28,17 @@ const AddFoodPage = () => {
       foodName,
       foodImage,
       foodCategory,
-      quantity: parseInt(quantity),
+      buyingQuantity: parseInt(quantity),
       price: parseFloat(price),
-      addBy: { 
-        name: user?.displayName || 'Unknown User', // if user not found then unknown
-        email: user?.email || ''
-      },
+      // addBy: { 
+      //   name: user?.displayName || 'Unknown User', // if user not found then unknown
+      //   email: user?.email || ''
+      // },
+      buyerName:user?.displayName,
+      buyerEmail:user?.email,
       foodOrigin,
       description,
+      createAt : user?.metadata?.creationTime,
     };
 
     try {
