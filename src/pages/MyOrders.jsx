@@ -37,7 +37,7 @@ const MyOrders = () => {
   const handleDeleteFood = async (food) => {
     // Get the correct ID - either from $oid or direct _id
     const foodId = food._id?.$oid || food._id;
-    console.log('Deleting food with ID:', foodId);
+    // console.log('Deleting food with ID:', foodId);
   
     const result = await Swal.fire({
       title: 'Are you sure?',
@@ -93,7 +93,7 @@ const MyOrders = () => {
   if (loading) {
     return <LoadingSpinner />;
   }
-  console.log(foods);
+  // console.log(foods);
 
   return (
     <div className="container mx-auto py-8">

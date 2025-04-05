@@ -6,7 +6,7 @@ import { AuthContext } from '../providers/AuthProvider';
 
 const AddFoodPage = () => {
   const { user } = useContext(AuthContext);
-  console.log('Current user:', user); // Debug line
+  // console.log('Current user:', user); // Debug line
 
   const [foodName, setFoodName] = useState('');
   const [foodImage, setFoodImage] = useState('');

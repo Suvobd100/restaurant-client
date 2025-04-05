@@ -12,7 +12,7 @@ const FoodPurchase = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
 
-  console.log(user.metadata.creationTime, user.metadata.lastSignInTime);
+  // console.log(user.metadata.creationTime, user.metadata.lastSignInTime);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ const FoodPurchase = () => {
 
       navigate(-1);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       toast.error(err.response?.data?.message || "Purchase failed");
       
     }
